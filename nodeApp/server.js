@@ -38,6 +38,4 @@ async function connections() {
   app.listen(PORT, () => console.log(`App is listening on port ${PORT}`));
 }
 
-setTimeout(() => {
-  connections();
-}, 60000);
+connections();

@@ -8,7 +8,7 @@ mongoose.set("strictQuery", false);
 // };
 const connectDB = async () => {
   try {
-    const db = await mongoose.connect(`mongodb://172.17.0.2:27017/devops`, {});
+    const db = await mongoose.connect(`mongodb://172.17.0.2:27017/${process.env.MONGO_ENV}`, {});
     console.log(`connected on ${db.connection.host}`);
   } catch (error) {
     console.log(error);

@@ -5,7 +5,6 @@ const devopsStudent = require("./models/db");
 const cors = require("cors");
 
 const app = express();
-connectDB();
 
 app.use(express.json());
 app.use(cors());
@@ -28,4 +27,17 @@ app.post("/student", async (req, res) => {
   res.status(201).json({ student });
 });
 
-app.listen(PORT, () => console.log(`App is listening on port ${PORT}`));
+app.get("/students", async (req, res) => {
+  const students = await devopsStudent.find();
+  console.log(students);
+  res.status(200).send(students);
+});
+
+async function connections() {
+  await connectDB();
+  app.listen(PORT, () => console.log(`App is listening on port ${PORT}`));
+}
+
+setTimeout(() => {
+  connections();
+}, 30000);

@@ -12,6 +12,6 @@ const devopsStudentSchema = new Schema({
   },
 });
 
-const devopsStudent = new mongoose.model("devops student", devopsStudentSchema);
+const devopsStudent = new mongoose.model("Student", devopsStudentSchema);
 
 module.exports = devopsStudent;

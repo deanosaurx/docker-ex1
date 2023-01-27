@@ -40,4 +40,4 @@ async function connections() {
 
 setTimeout(() => {
   connections();
-}, 30000);
+}, 60000);

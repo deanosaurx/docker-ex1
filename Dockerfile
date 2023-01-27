@@ -8,9 +8,7 @@ RUN mkdir -p /data/db
 RUN mkdir -p /data/db/log
 RUN apt update
 RUN apt-get install -y mongodb
-RUN apt-get install -y nginx
 RUN apt-get install -y nodejs
-RUN apt-get install -y gnupg
 WORKDIR /app
 COPY app/index.html /var/www/html
 COPY /nodeApp/package.json ./

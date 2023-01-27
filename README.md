@@ -20,7 +20,7 @@ docker run -d -p 8080:8080  --name node-mongo node-mongo
 
 ##### MongoDB needs to configure itself before it starts listening on port 27017
 
-##### So I made a 30 seconds timeout in the app so it won't crash
+##### So I made a 60 seconds timeout in the app so it won't crash
 
 ## How to use the node app
 

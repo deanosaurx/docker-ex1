@@ -17,7 +17,7 @@ docker inspect <the_mongo_container_id> | grep "IPAddress"
 ##### After obtaining the mongo container ip, go to the db.js file in the config folder and edit the ip
 
 ```
-const db = await mongoose.connect(`mongodb://<put_the_mongo_container_ip_here>/devops`, {});
+const db = await mongoose.connect(`mongodb://<put_the_mongo_container_ip_here>/`, {});
 ```
 
 ##### Now it's time to build the Dockerfile, cd to the repo and execute
@@ -29,7 +29,13 @@ docker build -t node-app .
 ##### Now run a container from the new image
 
 ```
-docker run -d -p 8080:8080  --name node-app node-app
+docker run -d -p 8080:8080 --name node-app node-app
+```
+
+##### OPTIONAL - The command below will pass an env variable to the code and create a devops db, you can change it if you want
+
+```
+docker run -d -p 8080:8080 --name node-app -e "MONGO_ENV=devops" node-app
 ```
 
 ## Note
